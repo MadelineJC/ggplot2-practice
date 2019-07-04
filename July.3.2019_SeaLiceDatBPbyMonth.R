@@ -7,5 +7,6 @@ ByMonthGraph<-ggplot(BurdwoodData, aes(Month, AverageLsalmonisfemalesperfish))+
   scale_x_discrete(name ="Month", 
                    labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"))+
   labs(title="Lice Abundance on Fish by Month, 2011-2019", 
-       y="Average L. salmonis females per fish")
+       y="Average L. salmonis females per fish")+
+  geom_smooth(method = "lm", se=TRUE, color="tomato", aes(group=1),size=0.5)
 ByMonthGraph
