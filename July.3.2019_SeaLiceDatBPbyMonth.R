@@ -1,3 +1,10 @@
+# Loading required packages
+library(ggplot2)
+library(plotly)
+library(readr)
+BurdwoodData <- read_csv("Desktop/R_directory/Messing Around with ggplot2/BurdwoodData.csv")
+
+# Making the boxplot
 BurdwoodData$Month <- as.factor(BurdwoodData$Month)
 ByMonthGraph<-ggplot(BurdwoodData, aes(Month, AverageLsalmonisfemalesperfish))+
   geom_boxplot(size=0.5,
@@ -9,4 +16,4 @@ ByMonthGraph<-ggplot(BurdwoodData, aes(Month, AverageLsalmonisfemalesperfish))+
   labs(title="Lice Abundance on Fish by Month, 2011-2019", 
        y="Average L. salmonis females per fish")+
   geom_smooth(method=loess,formula="y~x",se=TRUE, color="tomato", aes(group=1),size=0.5)
-ByMonthGraph
+ggplotly(ByMonthGraph,tooltip = c("AverageLsalmonisfemalesperfish"))
