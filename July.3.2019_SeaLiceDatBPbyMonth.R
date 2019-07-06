@@ -17,3 +17,6 @@ ByMonthGraph<-ggplot(BurdwoodData, aes(Month, AverageLsalmonisfemalesperfish))+
        y="Average L. salmonis females per fish")+
   geom_smooth(method=loess,formula="y~x",se=TRUE, color="tomato", aes(group=1),size=0.5)
 ggplotly(ByMonthGraph,tooltip = c("AverageLsalmonisfemalesperfish"))
+
+# See the interactive plot here: file:///Users/MaddieJC/Desktop/R_directory/Messing%20Around%20with%20ggplot2/SeaLiceBoxplotsByMonthInteractive.html
+# The non-interactive version of this plot is in my ggplot2-practice repository.
